@@ -1,0 +1,32 @@
+{
+  "pedidos": [
+    {
+      "nome": "Janine",
+      "descricao": "Quero um chocolate",
+      "cpf": "05189663306",
+      "status" : "novo",
+      "id": 1
+    },
+    {
+      "nome": "João",
+      "descricao": "Quero um bolo",
+      "cpf": "05189663305",
+      "status" : "novo",
+      "id": 2
+    },
+    {
+      "nome": "Janine",
+      "descricao": "Quero um limão",
+      "cpf": "05189663304",
+      "status" : "novo",
+      "id": 3
+    },
+    {
+      "nome": "Janine",
+      "descricao": "teste",
+      "cpf": "05189663303",
+      "status" : "novo",
+      "id": 4
+    }
+  ]
+}
