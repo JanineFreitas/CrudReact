@@ -11,21 +11,21 @@
       "nome": "João",
       "descricao": "Quero um bolo",
       "cpf": "05189663305",
-      "status" : "novo",
+      "status" : "Pedido sendo preparo",
       "id": 2
     },
     {
       "nome": "Janine",
       "descricao": "Quero um limão",
       "cpf": "05189663304",
-      "status" : "novo",
+      "status" : "Pedido em conferência",
       "id": 3
     },
     {
       "nome": "Janine",
       "descricao": "teste",
       "cpf": "05189663303",
-      "status" : "novo",
+      "status" : "Pronto para pagamento",
       "id": 4
     }
   ]

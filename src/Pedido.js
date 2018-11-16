@@ -24,6 +24,19 @@ export default class Pedido extends Component {
     this.props.excluirPedido(pedido);
   }
 
+  _cor(pedido){
+    let cor = 'badge white'
+    if(pedido.status==='novo'){
+      cor = 'badge red';
+    } else if(pedido.status === 'Pedido sendo preparo'){
+      cor = 'badge yellow';
+    } else if(pedido.status === 'Pedido em conferência'){
+      cor = 'badge green';
+    } else if(pedido.status === 'Pronto para pagamento'){
+      cor = 'badge blue';
+    }
+    return cor;
+  }
   render() {
     const {pedido} = this.props
 
@@ -35,16 +48,21 @@ export default class Pedido extends Component {
         <div className="card indigo darken-3">
           <div className="card-content white-text">
             <span className="card-title">Cliente: {pedido.nome}</span>
-            {this.state.exibirPedido ? (
-                <p>Descrição: {pedido.descricao}
-                  <div className="card-action">
-                    <button className="btn waves-effect waves-light" 
+            <span className={this._cor(pedido)}>Status: {pedido.status}</span>
+
+            
+
+            {this.state.exibirPedido ? (  
+              <div className="card-action">
+                <p>
+                  Descrição: {pedido.descricao} | 
+                  CPF: {pedido.cpf} | 
+                </p>
+                <button className="right btn waves-effect waves-light" 
                       onClick={this._excluirPedido(pedido)} 
                       type="submit">Remover
-                    </button>
-                  </div>
-                  <span className="badge white">Status: {pedido.status}</span>
-                </p>
+                </button>
+              </div>
               ) : ("")
             }
           </div>
