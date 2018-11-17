@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   descricao:'',
   cpf:'',
   status:'Novo',
+  dataHora: new Date(),
   id: 0
 }
 

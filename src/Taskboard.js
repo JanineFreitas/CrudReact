@@ -9,6 +9,7 @@ export default class Taskboard extends Component {
 
   constructor(props) {
     super(props)
+
     this.state = {
       carregando: false,
       pedidos: [{
@@ -16,6 +17,7 @@ export default class Taskboard extends Component {
         descricao:'',
         cpf:'',
         status:'Novo',
+        dataHora: new Date(),
         id: 0
       }]
     }
@@ -25,10 +27,12 @@ export default class Taskboard extends Component {
     this._buscarPedidos();
   }
 
-  _buscarPedidos() {
-      axios.get(API_URL).then(response => {
-        this.setState({pedidos: response.data})
-      })
+  _buscarPedidos = event => {
+    let data;
+    axios.get(API_URL).then(response => {
+      data = response.data;
+      this.setState({pedidos: data});
+    })
   }
 
   _getTitulo(total) {
@@ -43,18 +47,42 @@ export default class Taskboard extends Component {
 
   _listPedidos(pedidos) {
     return pedidos.map((pedido) =>
-      <Pedido key={pedido.id} pedido={pedido} excluirPedido={this._excluirPedido} />
+      <Pedido key={pedido.id} pedido={pedido} 
+        excluirPedido={this._excluirPedido} 
+        atualizarPedido={this._atualizarPedido}
+        buscarPedidos={this._buscarPedidos}/>
     );
   }
 
   _adicionarPedido(pedido)  {
     axios.post(API_URL, pedido)
-      .then(resp => this._buscarPedidos )
+      .then( response => {
+        console.log(response.data);
+      })
+      .catch( error => {
+        console.log(error);
+      });   
   }
 
   _excluirPedido(pedido) {
     axios.delete(API_URL+'/'+pedido.id)
-      .then(resp => this._buscarPedidos )
+      .then( response => {
+        console.log(response.data);
+      })
+      .catch( error => {
+        console.log(error);
+      });   
+  }
+
+  _atualizarPedido(pedido){
+    console.log(pedido.status);
+    axios.put(API_URL+'/'+pedido.id, pedido)
+      .then( response => {
+        console.log(response.data);
+      })
+      .catch( error => {
+        console.log(error);
+      });   
   }
 
   render() {

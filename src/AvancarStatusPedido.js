@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 
 const INITIAL_STATE = {
-  id:0,
-  nome:'',
-  cpf:'',
-  descricao:'',
-  status:'Novo'
+
 }
 
 export default class AvancarStatusPedido extends Component {

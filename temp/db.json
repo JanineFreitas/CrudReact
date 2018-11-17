@@ -4,7 +4,8 @@
       "nome": "Janine",
       "descricao": "Quero um chocolate",
       "cpf": "05189663306",
-      "status" : "novo",
+      "status" : "Novo",
+      "dataHora" : "2018-11-17T00:13:46.698Z",
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "descricao": "Quero um bolo",
       "cpf": "05189663305",
       "status" : "Pedido sendo preparo",
+      "dataHora" : "2018-11-17T00:13:46.698Z",
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "descricao": "Quero um limão",
       "cpf": "05189663304",
       "status" : "Pedido em conferência",
+      "dataHora" : "2018-11-17T00:13:46.698Z",
       "id": 3
     },
     {
@@ -26,6 +29,7 @@
       "descricao": "teste",
       "cpf": "05189663303",
       "status" : "Pronto para pagamento",
+      "dataHora" : "2018-11-17T00:13:46.698Z",
       "id": 4
     }
   ]
