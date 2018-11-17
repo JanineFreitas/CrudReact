@@ -97,15 +97,7 @@ export default class Pedido extends Component {
           <div className="card-content white-text">
             <span className="card-title">Cliente: {pedido.nome}</span>
             <span className={this._cor(pedido)}>Status: {pedido.status}</span>
-            <button id="bt1" className="right btn waves-effect waves-light" 
-                  onClick={(e) => this._atualizarPedido(pedido, e)} 
-                  type="submit">Avançar
-            </button>
-            <button className="right btn waves-effect waves-light" 
-                  onClick={(e) => this._excluirPedido(pedido, e)} 
-                  type="submit">Remover
-            </button>
-
+            
             {this.state.exibirPedido ? (  
               <div className="card-action">
                 <p>
@@ -113,7 +105,14 @@ export default class Pedido extends Component {
                   CPF: {pedido.cpf} | 
                   Tempo: {this._tempoPercorrido(pedido)}min
                 </p>
-                
+                <button id="bt1" className="right btn waves-effect waves-light" 
+                  onClick={(e) => this._atualizarPedido(pedido, e)} 
+                  type="submit">Avançar
+                </button>
+                <button className="right btn waves-effect waves-light" 
+                      onClick={(e) => this._excluirPedido(pedido, e)} 
+                      type="submit">Remover
+                </button>
               </div>
               ) : ("")
             }
