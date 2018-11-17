@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.22.2",
+    "rc-menu": "^7.4.19",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-icons": "^3.2.2",

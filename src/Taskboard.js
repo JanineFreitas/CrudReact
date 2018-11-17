@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Pedido from './Pedido'
-import CadastroPedidos from './CadastroPedidos'
 import Carregando from './Carregando'
 import axios from 'axios';
+import Legenda from './Legenda';
+
 const API_URL = 'http://localhost:3000/pedidos';
 
 export default class Taskboard extends Component {
@@ -54,16 +55,6 @@ export default class Taskboard extends Component {
     );
   }
 
-  _adicionarPedido(pedido)  {
-    axios.post(API_URL, pedido)
-      .then( response => {
-        console.log(response.data);
-      })
-      .catch( error => {
-        console.log(error);
-      });   
-  }
-
   _excluirPedido(pedido) {
     axios.delete(API_URL+'/'+pedido.id)
       .then( response => {
@@ -91,9 +82,7 @@ export default class Taskboard extends Component {
 
     return (
       <div className="section no-pad-bot" id="index-banner">
-        <div className="container">
-          <CadastroPedidos adicionarPedido={this._adicionarPedido} />
-          
+        <div className="container">         
           <h5>Avança Status do Pedido</h5>
 
           {carregando ? (
@@ -105,14 +94,7 @@ export default class Taskboard extends Component {
               </div>
             )
           }
-          <h6> Legenda </h6>
-          <p>
-            ATENÇÃO: Dirija-se ao caixa quando seu pedido estiver azul.<br/>
-            <span className={'red'}>Pedido Novo</span><br/>
-            <span className={'yellow'}>Pedido sendo Processado</span><br/>
-            <span className={'green'}>Pedido em conferência</span><br/>
-            <span className={'blue'}>Pronto para pagamento</span><br/>
-          </p>
+          <Legenda />
         </div>
       </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class Pedido extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ export default class Pedido extends Component {
     }
     this._atualizarPedido = this._atualizarPedido.bind(this);
     this._excluirPedido = this._excluirPedido.bind(this);
+    this._acompanharPedido = this._acompanharPedido.bind(this);
   }
 
   _atualizarPedido(pedido){
@@ -73,16 +74,8 @@ export default class Pedido extends Component {
     return cor;
   }
 
-  _tempoPercorrido(pedido){
-    const dataInicio = pedido.dataHora;
-    const agora = new Date();
-    const diffMilissegundos = agora - dataInicio;
-    const diffSegundos = diffMilissegundos / 1000;
-    const diffMinutos = diffSegundos / 60;
-    console.log(dataInicio);
-    console.log(agora);
-    console.log("diffMilissegundos " +diffMilissegundos);
-    return dataInicio;
+  _acompanharPedido(){
+    <Link to="/acompanhar">Acompanhar Pedido</Link>
   }
 
   render() {
@@ -103,16 +96,19 @@ export default class Pedido extends Component {
                 <p>
                   Descrição: {pedido.descricao} | 
                   CPF: {pedido.cpf} | 
-                  Tempo: {this._tempoPercorrido(pedido)}min
                 </p>
+                <button className="right btn waves-effect waves-light" 
+                      onClick={(e) => this._excluirPedido(pedido, e)} 
+                      type="submit">Remover 
+                </button>
                 <button id="bt1" className="right btn waves-effect waves-light" 
                   onClick={(e) => this._atualizarPedido(pedido, e)} 
                   type="submit">Avançar
                 </button>
-                <button className="right btn waves-effect waves-light" 
-                      onClick={(e) => this._excluirPedido(pedido, e)} 
-                      type="submit">Remover
-                </button>
+
+                <Link className="right btn waves-effect waves-light" 
+                  to="/acompanhar">Acompanhar Pedido</Link>
+
               </div>
               ) : ("")
             }

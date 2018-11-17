@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Topo from './Topo'
 import Rodape from './Rodape'
-import Taskboard from './Taskboard'
+import MenuForm from './MenuForm';
 
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <Topo />
-        <Taskboard />
+        <MenuForm />
         <Rodape />
       </div>
     );
