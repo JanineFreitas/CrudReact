@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Taskboard from './Taskboard'
+import Status from './Status'
 import AcompanharPedido from './AcompanharPedido';
 import CadastroPedidos from './CadastroPedidos';
 import Caixa from './Caixa';
@@ -19,7 +19,7 @@ export default class MenuForm extends Component {
 
   inicio() {
     return (
-      <Taskboard />
+      <Status />
     );
   }
 

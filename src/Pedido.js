@@ -18,6 +18,7 @@ export default class Pedido extends Component {
     this._atualizarPedido = this._atualizarPedido.bind(this);
     this._excluirPedido = this._excluirPedido.bind(this);
     this._acompanharPedido = this._acompanharPedido.bind(this);
+    this._buscarPedidos = this._buscarPedidos.bind(this);
   }
 
   _atualizarPedido(pedido){

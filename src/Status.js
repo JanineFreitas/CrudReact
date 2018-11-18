@@ -6,7 +6,7 @@ import Legenda from './Legenda';
 
 const API_URL = 'http://localhost:3000/pedidos';
 
-export default class Taskboard extends Component {
+export default class Status extends Component {
 
   constructor(props) {
     super(props)
@@ -28,12 +28,11 @@ export default class Taskboard extends Component {
     this._buscarPedidos();
   }
 
-  _buscarPedidos = event => {
+  _buscarPedidos(){
     let data;
-    axios.get(API_URL).then(response => {
-      data = response.data;
-      this.setState({pedidos: data});
-    })
+    axios.get(API_URL).then(response => 
+      this.setState({pedidos: response.data, carregando: false})
+    )
   }
 
   _getTitulo(total) {
@@ -50,8 +49,7 @@ export default class Taskboard extends Component {
     return pedidos.map((pedido) =>
       <Pedido key={pedido.id} pedido={pedido} 
         excluirPedido={this._excluirPedido} 
-        atualizarPedido={this._atualizarPedido}
-        buscarPedidos={this._buscarPedidos}/>
+        atualizarPedido={this._atualizarPedido}/>
     );
   }
 
